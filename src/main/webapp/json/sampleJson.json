@@ -1,0 +1,22 @@
+{
+	"title": "Mr",
+	"firstName": "John",
+	"lastName": "Fulton",
+	"dateOfBirth": "21/10/1988",
+	"postcode": "SP103DF",
+	"addressLine1": "10 Woodlands Way",
+	"addressLine2": "Andover",
+	"town": "Andover",
+	"county": "Hampshire",
+	"email": "John.Fulton@gmail.com",
+	"homeNumber": 9389283498,
+	"mobileNumber": 9812382345,
+	"status": "Married",
+	"nameOfEmployer": "ABCD",
+	"monthsAtEmployment": 29,
+	"bankName": "HSBC",
+	"bankIbanCode": "",
+	"bankAccountNumber": 27398563,
+	"monthsWithBank": 18,
+	"loanRequested": 900
+}

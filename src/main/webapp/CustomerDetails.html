@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>IPF</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="css/test1.css">
+    <link rel="stylesheet" href="css/reset.css">
+
+    <!--<script type="text/javascript" src="script/index.js"></script>-->
+    <script src="script/jquery.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+
+
+    <script>
+        function isValidateControl(id) {
+            if (id == 'firstNext') {
+                //Start Control Value
+                var firstname = document.getElementById('firstname').value;
+                if (firstname == '') {
+                    alert('Please enter your firstname');
+                    //returnValue = false;
+                    document.getElementById('firstname').focus();
+                    return false;
+                }
+
+                var lastname = document.getElementById('lastname').value;
+                if (lastname == '') {
+                    alert('Please enter your lastname');
+                    //returnValue = false;
+                    document.getElementById('lastname').focus();
+                    return false;
+                }
+
+                var dob = document.getElementById('dob').value;
+                if (dob == '') {
+                    alert('Please enter your dob');
+                    //returnValue = false;
+                    document.getElementById('dob').focus();
+                    return false;
+                }
+
+                var postcode = document.getElementById('postcode').value;
+                if (postcode == '') {
+                    alert('Please enter your postcode');
+                    //returnValue = false;
+                    document.getElementById('postcode').focus();
+                    return false;
+                }
+
+                var address1 = document.getElementById('address1').value;
+                if (address1 == '') {
+                    alert('Please enter your address1');
+                    //returnValue = false;
+                    document.getElementById('address1').focus();
+                    return false;
+                }
+
+                var address2 = document.getElementById('address2').value;
+                if (address2 == '') {
+                    alert('Please enter your address2');
+                    //returnValue = false;
+                    document.getElementById('address2').focus();
+                    return false;
+                }
+
+                var town = document.getElementById('town').value;
+                if (town == '') {
+                    alert('Please enter your town');
+                    //returnValue = false;
+                    document.getElementById('town').focus();
+                    return false;
+                }
+
+                var country = document.getElementById('country').value;
+                if (country == '') {
+                    alert('Please enter your country');
+                    //returnValue = false;
+                    document.getElementById('country').focus();
+                    return false;
+                }
+
+
+                var email = document.getElementById('email').value;
+                if (email == '') {
+                    alert('Please enter your email');
+                    //returnValue = false;
+                    document.getElementById('email').focus();
+                    return false;
+                }
+
+                var home = document.getElementById('home').value;
+                if (home == '') {
+                    alert('Please enter your home');
+                    //returnValue = false;
+                    document.getElementById('home').focus();
+                    return false;
+                }
+
+                var mobile = document.getElementById('mobile').value;
+                if (mobile == '') {
+                    alert('Please enter your mobile');
+                    document.getElementById('mobile').focus();
+                    return false;
+                }
+
+            }
+
+
+            if (id == 'secondNext') {
+
+                //Start Control Value
+                var employee = document.getElementById('employee').value;
+                if (employee == '') {
+                    alert('Please enter your employee');
+                    //returnValue = false;
+                    document.getElementById('employee').focus();
+                    return false;
+                }
+
+                var employment = document.getElementById('employment').value;
+                if (employment == '') {
+                    alert('Please enter your employment');
+                    //returnValue = false;
+                    document.getElementById('employment').focus();
+                    return false;
+                }
+
+                var bankname = document.getElementById('bankname').value;
+                if (bankname == '') {
+                    alert('Please enter your bankname');
+                    //returnValue = false;
+                    document.getElementById('bankname').focus();
+                    return false;
+                }
+
+                var bankcode = document.getElementById('bankcode').value;
+                if (bankcode == '') {
+                    alert('Please enter your bankcode');
+                    //returnValue = false;
+                    document.getElementById('bankcode').focus();
+                    return false;
+                }
+
+                var accountnumber = document.getElementById('accountnumber').value;
+                if (accountnumber == '') {
+                    alert('Please enter your accountnumber');
+                    //returnValue = false;
+                    document.getElementById('accountnumber').focus();
+                    return false;
+                }
+
+                var monthwithbank = document.getElementById('monthwithbank').value;
+                if (monthwithbank == '') {
+                    alert('Please enter your monthwithbank');
+                    //returnValue = false;
+                    document.getElementById('monthwithbank').focus();
+                    return false;
+                }
+                //End
+
+            }
+            //End
+
+            //return returnValue;
+            return true;
+        }
+
+
+        function secondNextBtnValidation() {
+            //alert('Hello');
+
+            //Start Control Value
+            var employee = document.getElementById('employee').value;
+            if (employee == '') {
+                alert('Please enter your employee');
+                //returnValue = false;
+                document.getElementById('employee').focus();
+                return false;
+            }
+
+            var employment = document.getElementById('employment').value;
+            if (employment == '') {
+                alert('Please enter your employment');
+                //returnValue = false;
+                document.getElementById('employment').focus();
+                return false;
+            }
+
+            var bankname = document.getElementById('bankname').value;
+            if (bankname == '') {
+                alert('Please enter your bankname');
+                //returnValue = false;
+                document.getElementById('bankname').focus();
+                return false;
+            }
+
+            var bankcode = document.getElementById('bankcode').value;
+            if (bankcode == '') {
+                alert('Please enter your bankcode');
+                //returnValue = false;
+                document.getElementById('bankcode').focus();
+                return false;
+            }
+
+            var accountnumber = document.getElementById('accountnumber').value;
+            if (accountnumber == '') {
+                alert('Please enter your accountnumber');
+                //returnValue = false;
+                document.getElementById('accountnumber').focus();
+                return false;
+            }
+
+            var monthwithbank = document.getElementById('monthwithbank').value;
+            if (monthwithbank == '') {
+                alert('Please enter your monthwithbank');
+                //returnValue = false;
+                document.getElementById('monthwithbank').focus();
+                return false;
+            }
+            //End
+
+            return true;
+        }
+
+
+
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(document).ready(function () {
+
+            $(".next").click(function () {
+
+                //We will add validation function here
+                //Validation logic will be in separate function, that function will return true/false value
+                //If value will be true then further code will be execute else display the validation message on UI.
+
+                //alert('Before Validation Function');
+                //if (isValidateControl(this.id) == false) return false;
+                //alert('After Validation Function');
+
+
+                if (animating) return false;
+                animating = true;
+
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
+
+                //activate next step on progressbar using the index of next_fs
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+                //show the next fieldset
+                next_fs.show();
+
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now, mx) {
+                        //as the opacity of current_fs reduces to 0 - stored in "now"
+                        //1. scale current_fs down to 80%
+                        scale = 1 - (1 - now) * 0.2;
+                        //2. bring next_fs from the right(50%)
+                        left = (now * 50) + "%";
+                        //3. increase opacity of next_fs to 1 as it moves in
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'transform': 'scale(' + scale + ')',
+                            'position': 'absolute'
+                        });
+                        next_fs.css({ 'left': left, 'opacity': opacity });
+                    },
+                    duration: 800,
+                    complete: function () {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    //this comes from the custom easing plugin
+                    easing: 'easeInOutBack'
+                });
+
+            });
+
+            $(".previous").click(function () {
+                if (animating) return false;
+                animating = true;
+
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+
+                //de-activate current step on progressbar
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+                //show the previous fieldset
+                previous_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now, mx) {
+                        //as the opacity of current_fs reduces to 0 - stored in "now"
+                        //1. scale previous_fs from 80% to 100%
+                        scale = 0.8 + (1 - now) * 0.2;
+                        //2. take current_fs to the right(50%) - from 0%
+                        left = ((1 - now) * 50) + "%";
+                        //3. increase opacity of previous_fs to 1 as it moves in
+                        opacity = 1 - now;
+                        current_fs.css({ 'left': left });
+                        previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+                    },
+                    duration: 800,
+                    complete: function () {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    //this comes from the custom easing plugin
+                    easing: 'easeInOutBack'
+                });
+            });
+            
+            $(".submit").click(function () {
+
+                //alert('Hello Submit');
+
+                //Data Saving Code Below for Customer Details                
+                var title = $('#drdtitle option:selected').html(); 
+                var firstname = $("#firstname").val();
+                var lastname = $("#lastname").val();
+             //   var dob = $('#dob').val();
+                var NINumber = $('#NINumber').val();
+                var postcode = $('#postcode').val();
+                var address1 = $("#address1").val();
+                var address2 = $("#address2").val();
+                var town = $('#town').val();
+                var country = $('#country').val();
+                var email = $("#email").val();
+                var home = parseInt($("#home").val());
+                var mobile = parseInt($('#mobile').val());
+                //var status = $('#drdstatus option:selected').html();                             
+
+                ////Data Saving Code Below for Employee Details
+                var employee = $('#employee').val();
+                //var employment = $('#employment').val();
+                var bankname = $("#bankname").val();
+               // var bankcode = $("#bankcode").val();
+                var accountnumber = parseInt($('#accountnumber').val());
+                //var monthwithbank = parseInt($('#monthwithbank').val());
+
+                
+                var objCustomer = {};
+                objCustomer.title = title;
+                objCustomer.firstName = firstname;
+                objCustomer.lastName = lastname;
+               // objCustomer.dateOfBirth = dob;
+                objCustomer.niNumber = NINumber;
+                objCustomer.postcode = postcode;
+                objCustomer.addressLine1 = address1;
+                objCustomer.addressLine2 = address2;
+                objCustomer.town = town;
+                objCustomer.county = country;
+                objCustomer.email = email;
+                objCustomer.homeNumber = home;
+                objCustomer.mobileNumber = mobile;
+               // objCustomer.status = status;
+
+                objCustomer.nameOfEmployer = employee;
+              //  objCustomer.monthsAtEmployment = employment;
+                objCustomer.bankName = bankname;
+              //  objCustomer.bankIbanCode = bankcode;
+                objCustomer.bankAccountNumber = accountnumber;
+              //  objCustomer.monthsWithBank = monthwithbank;
+             //   objCustomer.loanRequested = loanrequested;
+			var data3=JSON.stringify(objCustomer);
+               alert(data3);
+			   
+                $.ajax(
+                {
+                    type: 'POST',
+                    crossOrigin: true,
+                    url: "http://localhost:8085/GraphServices/createLoan",
+                    dataType: "json",
+                    cache: false,
+                    contentType: "application/json; charset=utf-8",
+                    data: data3,
+
+                    success: function (data2) {
+                        alert("Record Added successfully.");
+                        location.reload();
+                    },
+                    error: function (data2) {
+                        alert("Failed Adding record.");
+                    }
+                });
+                
+
+            });
+
+        }); //End of document object
+
+
+    </script>
+</head>
+
+
+<body>
+    <form id="msform" action="" name="registration">
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active">Customer Details</li>
+            <li>Employee Details</li>
+            <!--<li>Loan Details</li>-->
+        </ul>
+        <!-- fieldsets -->
+
+
+        <fieldset>
+            <h2 class="fs-title">Customer Details</h2>
+
+            <select id="drdtitle">
+                <option value="Mr" selected="selected">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+            </select>
+            <input type="text" name="firstname" id="firstname" placeholder="First Name" />
+            <input type="text" name="lastname" id="lastname" placeholder="Last Name" />
+           <!-- <input type="text" name="dob" id="dob" placeholder="Date Of Birth" />-->
+            <input type="text" name="NINumber" id="NINumber" placeholder="NI Number" />
+			 <input type="text" name="email" id="email" placeholder="Email" />
+          
+            <input type="text" name="mobile" id="mobile" placeholder="Mobile Number" />
+			 <h2 class="fs-title">Address Details</h2>
+            <input type="text" name="postcode" id="postcode" placeholder="Post Code" />
+			  <input type="text" name="home" id="home" placeholder="Home Number" />
+            <textarea name="address1" id="address1" placeholder="Address Line1"></textarea>
+            <textarea name="address2" id="address2" placeholder="Address Line2"></textarea>
+            <input type="text" name="town" id="town" placeholder="Town" />
+            <input type="text" name="country" id="country" placeholder="Country" />
+           
+			<!--
+            <select id="drdstatus">
+                <option value="Single" selected="selected">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorcee">Divorcee</option>
+                <option value="Living Together">Living Together</option>
+                <option value="Separated">Separated</option>
+            </select>
+-->
+            <input type="button" name="next" id="firstNext" class="next action-button" value="Next" />
+        </fieldset>
+
+
+
+        <fieldset>
+            <h2 class="fs-title">Employee Details</h2>
+            <input type="text" name="employee" id="employee" placeholder="Name Of Employer" />
+           <!-- <input type="text" name="employment" id="employment" placeholder="Months Of Employment" />-->
+
+            <h2 class="fs-title">Bank Details</h2>
+            <input type="text" name="bankname" id="bankname" placeholder="Bank Name" />
+           <!-- <input type="text" name="bankcode" id="bankcode" placeholder="Bank IBAN Code" />-->
+            <input type="text" name="accountnumber" id="accountnumber" placeholder="Bank Account Number" />
+          <!--  <input type="text" name="monthwithbank" id="monthwithbank" placeholder="Months With Bank" />-->
+
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+			 <input id="submit" name="submit" type="button" value="submit" class="submit action-button" />
+           <!-- <input type="button" name="next" class="next action-button" value="Next" id="secondNext" />-->
+        </fieldset>
+
+
+    </form>
+</body>
+</html>

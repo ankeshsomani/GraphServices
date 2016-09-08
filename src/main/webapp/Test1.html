@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>IPF</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="css/test1.css">
+    <link rel="stylesheet" href="css/reset.css">    
+
+    <!--<script type="text/javascript" src="script/test1.js"></script>-->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+    
+    <script>
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(document).ready(function () {
+            
+            $(".next").click(function () {
+
+                if (animating) return false;
+                animating = true;
+
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
+
+                //activate next step on progressbar using the index of next_fs
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+                //show the next fieldset
+                next_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now, mx) {
+                        //as the opacity of current_fs reduces to 0 - stored in "now"
+                        //1. scale current_fs down to 80%
+                        scale = 1 - (1 - now) * 0.2;
+                        //2. bring next_fs from the right(50%)
+                        left = (now * 50) + "%";
+                        //3. increase opacity of next_fs to 1 as it moves in
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'transform': 'scale(' + scale + ')',
+                            'position': 'absolute'
+                        });
+                        next_fs.css({ 'left': left, 'opacity': opacity });
+                    },
+                    duration: 800,
+                    complete: function () {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    //this comes from the custom easing plugin
+                    easing: 'easeInOutBack'
+                });
+            });
+
+
+            $(".previous").click(function () {
+                if (animating) return false;
+                animating = true;
+
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+
+                //de-activate current step on progressbar
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+                //show the previous fieldset
+                previous_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now, mx) {
+                        //as the opacity of current_fs reduces to 0 - stored in "now"
+                        //1. scale previous_fs from 80% to 100%
+                        scale = 0.8 + (1 - now) * 0.2;
+                        //2. take current_fs to the right(50%) - from 0%
+                        left = ((1 - now) * 50) + "%";
+                        //3. increase opacity of previous_fs to 1 as it moves in
+                        opacity = 1 - now;
+                        current_fs.css({ 'left': left });
+                        previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+                    },
+                    duration: 800,
+                    complete: function () {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    //this comes from the custom easing plugin
+                    easing: 'easeInOutBack'
+                });
+            });
+
+
+            $(".submit").click(function () {
+                return false;
+            })
+
+        }); //End of document object
+    </script>
+</head>
+
+
+
+<body>
+    <form id="msform">
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active">Customer Details</li>
+            <li>Employee Details</li>
+            <li>Loan Details</li>
+        </ul>
+        <!-- fieldsets -->
+
+
+        <fieldset>
+            <h2 class="fs-title">Customer Details</h2>
+
+            <select>
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Miss</option>
+            </select>
+            <input type="text" name="firstname" placeholder="First Name" />
+            <input type="text" name="lastname" placeholder="Last Name" />
+            <input type="text" name="dob" placeholder="Date Of Birth" />
+            <input type="text" name="postcode" placeholder="Post Code" />
+            <textarea name="address1" placeholder="Address Line1"></textarea>
+            <textarea name="address2" placeholder="Address Line2"></textarea>
+            <input type="text" name="town" placeholder="Town" />
+            <input type="text" name="country" placeholder="Country" />
+            <input type="text" name="email" placeholder="Email" />
+            <input type="text" name="home" placeholder="Home Number" />
+            <input type="text" name="mobile" placeholder="Mobile Number" />
+            <select>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Divorcee</option>
+                <option>Living Together</option>
+                <option>Separated</option>
+            </select>
+
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+
+
+
+        <fieldset>
+            <h2 class="fs-title">Employee Details</h2>
+            <input type="text" name="employee" placeholder="Name Of Employer" />
+            <input type="text" name="employment" placeholder="Months Of Employment" />
+
+            <h2 class="fs-title">Bank Details</h2>
+            <input type="text" name="bankname" placeholder="Bank Name" />
+            <input type="text" name="bankcode" placeholder="Bank IBAN Code" />
+            <input type="text" name="accountnumber" placeholder="Bank Account Number" />
+            <input type="text" name="monthwithbank" placeholder="Months With Bank" />
+
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+
+
+
+        <fieldset>
+            <h2 class="fs-title">Loan Details</h2>
+            <input type="text" name="loanrequested" placeholder="Loan Requested" />
+
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="submit" name="submit" class="submit action-button" value="Submit" />
+        </fieldset>
+    </form>
+</body>
+</html>
